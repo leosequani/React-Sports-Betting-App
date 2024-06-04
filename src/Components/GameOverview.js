@@ -25,7 +25,7 @@ const GameOverview = (game) => {
     return (
                 
             
-        <Card className="w-80" color="transparent" variant="gradient">
+        <Card className="w-80 cardStyling" color="#1a1829" variant="gradient">
             <CardBody className="text-center">
                 <div className="lg:hidden">
                     <div className={game.sport !== "americanfootball_ncaaf" ? "h-24 mb-1"  : "h-24 mb-3" }>

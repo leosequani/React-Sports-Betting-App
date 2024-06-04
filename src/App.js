@@ -11,8 +11,6 @@ import {
   Navbar,
   Typography,
   IconButton,
-  Select,
-  Option,
   Spinner
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon, ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
@@ -223,26 +221,26 @@ function App() {
     );
   }
 
-  const SelectInHeader = useMemo(() => {
-    return (
-      <Select key={stateName} selected={(element) => element && React.cloneElement(element, {className: "flex items-center px-0 gap-2 pointer-events-none",})} 
-      variant="outlined" label="State" color="blue" value={stateName} onChange={(values) => stateSelect(values)} className="z-10" containerProps={{className: "min-w-[60px]",}}>
-                {Object.keys(state_bookmakers).map((state) => (
-                  <Option key={state} value={state} className="flex items-center gap-2">
-                    <img className="h-5 w-5 object-cover" src={stateImages[state + ".png"]} alt={state} />
-                    {state}
-                  </Option>
-                ))}
-              </Select>
-    );
-  }, [stateName, stateImages]);
+  // const SelectInHeader = useMemo(() => {
+  //   return (
+  //     <Select key={stateName} selected={(element) => element && React.cloneElement(element, {className: "flex items-center px-0 gap-2 pointer-events-none",})} 
+  //     variant="outlined" label="State" color="white" value={stateName} onChange={(values) => stateSelect(values)} className="z-10" containerProps={{className: "min-w-[60px]",}}>
+  //               {Object.keys(state_bookmakers).map((state) => (
+  //                 <Option key={state} value={state} className="flex items-center gap-2">
+  //                   <img className="h-5 w-5 object-cover" src={stateImages[state + ".png"]} alt={state} />
+  //                   {state}
+  //                 </Option>
+  //               ))}
+  //             </Select>
+  //   );
+  // }, [stateName, stateImages]);
 
   
   const InputInHeader = useMemo(() => {
     return (
       <div className="relative flex w-full">
         <Input
-                  color="blue"
+                  color="white"
                   label="Search"
                   value={filterText}
                   onChange={filterGames}
@@ -267,7 +265,7 @@ function App() {
   }, [filterText, filterGames]);
 
   return (
-    <div>
+    <div className="bodyofitems"> 
       <CookieConsent
       location="bottom"
       buttonText="Got it."
@@ -278,23 +276,16 @@ function App() {
     >
       We use cookies to enhance your browsing experience and to deliver targeted advertising on our website. You can learn more about how we use cookies & how to opt out in our <PopupComponent type="privacy" text="text-blue-500 text-sm cursor-pointer"/>{" "}
     </CookieConsent>
-      <Navbar className="sticky z-10 lg:px-8 lg:py-4 mx-auto max-w-screen-2xl">
-        <div className="flex flex-wrap items-center justify-evenly text-indigo-500">
-          <Typography
-            color="#6366f1"
-            variant="h6"
-            className="mr-4 cursor-pointer text-inherit py-1.5"
-          >
-            Shop the Line
-          </Typography>
+      <Navbar  className="bodyofitems navBarClass sticky z-10 lg:px-8 lg:py-4">
+        <div className="flex flex-wrap items-center justify-between">
           <div className="hidden lg:block">
-            <NavList />
+            <NavList>
+              <Typography/>
+            </NavList>
+
           </div>
           <div className="hidden lg:block">
-            <div className="min-w-[450px] grid grid-cols-2 gap-2">
-              <div>{SelectInHeader}</div>
               <div>{InputInHeader}</div>
-            </div>
           </div>
           {!openNav ?
           <div className="lg:hidden absolute top-15 right-20 mt-3 text-blue-700 opacity-70">
@@ -321,7 +312,6 @@ function App() {
         </Collapse>
         <div className="relative flex w-full gap-2 pt-3 
          lg:hidden">
-            {SelectInHeader}
             {InputInHeader}
         </div>
       </Navbar>
@@ -330,10 +320,11 @@ function App() {
      
 
       {status === "loading" || status === "error" ?
-        <div className="flex flex-wrap justify-center items-center mt-8 mb-8">
+        <div className="bodyofitems flex flex-wrap justify-center items-center mt-8 mb-8">
           {status === "loading" ? <Spinner className="h-12 w-12" />:
           status === "error" ? <span className="text-red-500 font-bold text-sm text-center">An unexpected error has occurred. Please try again later</span>:<></> }
-        </div> : <div>
+        </div> : 
+        <div className="bodyofitems">
      
       {filteredGames.length > 0 ?
       <div className="flex items-center justify-center mt-3">

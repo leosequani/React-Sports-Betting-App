@@ -7,7 +7,7 @@ export default function SportsBookList() {
       <List>
         {Array.from(state_bookmakers["All"]).map((name) => {
             return <div data-testid="sportsbook" key={name}><a href={bookmaker_links[name]} target="_blank" rel="noopener noreferrer">
-            <ListItem className="h-8 text-blue-500 text-sm">{bookmaker_names[name]}</ListItem></a></div>;
+            <ListItem className="h-8 text-sm">{bookmaker_names[name]}</ListItem></a></div>;
         })}
       </List>
     </Card>
