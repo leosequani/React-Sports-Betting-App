@@ -26,7 +26,7 @@ export const DataProvider = (event) => {
       else odds = hockey_data;
     }
     else {
-      const url = 'https://uq9ndc524g.execute-api.us-east-1.amazonaws.com/default/player-data-fetch?sport=' + event.sport + '&game_id=' + event.game_id + '&specMarkets=' + specMarketsForSport;
+      const url = 'https://fantastic-bunny-92b271.netlify.app/.netlify/functions/player-data-fetch?sport=' + event.sport + '&game_id=' + event.game_id + '&specMarkets=' + specMarketsForSport;
       const playerData = await fetch(url, {
         method: 'GET'
       });
