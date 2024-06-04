@@ -1,9 +1,9 @@
 import React,{ useEffect, useState, useMemo, useCallback } from "react";
 import GameOverview from "./Components/GameOverview";
-import PopupComponent from "./Components/PopupComponent";
+// import PopupComponent from "./Components/PopupComponent";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import CookieConsent from "react-cookie-consent";
+// import CookieConsent from "react-cookie-consent";
 import { state_bookmakers, league_titles, team_titles } from "./Resources.js";
 import { 
   Collapse,
@@ -268,7 +268,7 @@ function App() {
 
   return (
     <div className="bodyofitems"> 
-      <CookieConsent
+      {/* <CookieConsent
       location="bottom"
       buttonText="Got it."
       cookieName="CookieBanner1"
@@ -277,7 +277,7 @@ function App() {
       expires={150}
     >
       We use cookies to enhance your browsing experience and to deliver targeted advertising on our website. You can learn more about how we use cookies & how to opt out in our <PopupComponent type="privacy" text="text-blue-500 text-sm cursor-pointer"/>{" "}
-    </CookieConsent>
+    </CookieConsent> */}
       <Navbar  className="bodyofitems navBarClass sticky z-10 lg:px-8 lg:py-4">
         <div className="flex flex-wrap items-center justify-between">
           <div className="hidden lg:block">
