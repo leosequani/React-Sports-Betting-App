@@ -95,7 +95,7 @@ function App() {
     } else {
       let today = new Date();
       let nextweek = new Date(today.getFullYear(), today.getMonth(), today.getDate()+8).toISOString().substring(0, 19) + 'Z';
-      const url = 'https://' + process.env.REACT_APP_AWS_API_ID + '.execute-api.' + process.env.REACT_APP_AWS_API_REGION + '.amazonaws.com/default/game-data-fetch?sport=' + sport + '&commenceTimeTo=' + nextweek;
+      const url = 'https://uq9ndc524g.execute-api.us-east-1.amazonaws.com/default/game-data-fetch?sport=' + sport + '&commenceTimeTo=' + nextweek;
       const playerData = await fetch(url, {
         method: 'GET'
       });
