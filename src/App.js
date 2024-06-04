@@ -28,12 +28,12 @@ function App() {
   const [sport, setSport] = useState(window.localStorage.getItem('sport') || 'americanfootball_nfl');
   const [filterText, setFilterText] = useState(window.sessionStorage.getItem('filter_text_' + sport) ? window.sessionStorage.getItem('filter_text_' + sport) : "");
   const [bookies, setBookies] = useState(window.localStorage.getItem('usState')?state_bookmakers[window.localStorage.getItem('usState')]:state_bookmakers["New York"]) ;
-  const [stateName, setStateName] = useState(window.localStorage.getItem('usState') || "All");
+  // const [stateName, setStateName] = useState(window.localStorage.getItem('usState') || "All");
   const [openNav, setOpenNav] = useState(false);
   const [pages, setPages] = useState(0);
   const [endIndex, setEndIndex] = useState(numGamesPerPage);
   const [checkedBest, setCheckedBest] = useState(window.sessionStorage.getItem('checkedBest') === 'true' ? true : false);
-  const stateImages = importAll(require.context('./Images/StateIcons/', true, /\.(png|jpe?g|svg)$/));
+  // const stateImages = importAll(require.context('./Images/StateIcons/', true, /\.(png|jpe?g|svg)$/));
   const teamImages = importAll(require.context('./Images/TeamImages/', true, /\.(png|jpe?g|svg)$/));
   const sportImages = importAll(require.context('./Images/Sports/', true, /\.(png|jpe?g|svg)$/));
 
@@ -140,12 +140,10 @@ function App() {
   function stateSelect(values){
     if(!values) {
       setBookies(new Set([]));
-      setStateName("");
       window.localStorage.removeItem('usState');
     }
     else{
       setBookies(state_bookmakers[values]);
-      setStateName(values);
       window.localStorage.setItem('usState', values);
     }
     
@@ -164,6 +162,10 @@ function App() {
   function NavList() {
     let inactive = "flex items-center hover:text-blue-700 grayscale hover:grayscale-0 transition-colors";
     let active = "flex items-center font-bold text-blue-700 transition-colors";
+    if (!active){
+      stateSelect()
+    }
+ 
 
     return (
       <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
