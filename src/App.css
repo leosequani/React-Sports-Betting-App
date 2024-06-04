@@ -44,7 +44,7 @@ html
 }
 
 .bodyofitems{
-  background-color: #f6f0ce;
+  background-color: #FDFBF2;
   width: 100% !important;
 }
 
@@ -64,7 +64,7 @@ hidden lg:block ul li{
   border-radius: 10px !important;
 }
 body{
-  background-color: #f6f0ce !important;
+  background-color: #FDFBF2 !important;
 }
 
 body .bodyofitems nav button{
