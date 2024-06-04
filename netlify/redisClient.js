@@ -1,10 +1,10 @@
 const Redis = require('ioredis');
 
 const redisConfig = new Redis({
-  host: process.env.REDIS_HOST,
-  port: process.env.REDIS_PORT,
-  username: process.env.REDIS_USERNAME,
-  password: process.env.REDIS_PASSWORD
+  host: '127.0.0.1',
+  port: '6379',
+  username: "default",
+  password: 'tHJvbDYGX5dL2wFrcUH3XblaQgso7Hkp'
 });
 
 module.exports = redisConfig;
