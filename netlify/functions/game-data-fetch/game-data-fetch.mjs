@@ -16,8 +16,8 @@ const config = {
 const handler = withIntegrations(
   async function (event) {
     const sport = event.queryStringParameters?.sport;
-    const urls = ['https://api.the-odds-api.com/v4/sports/' + sport + '/odds/?apiKey=b2f5f0bc430d1042297c233735006fe2&regions=us&oddsFormat=american&markets=spreads,h2h,totals&dateFormat=iso',
-          'https://api.the-odds-api.com/v4/sports/' + sport + '/scores/?apiKey=b2f5f0bc430d1042297c233735006fe2'];
+    const urls = ['https://api.the-odds-api.com/v4/sports/' + sport + '/odds/?apiKey=7efe8c56271d1dbec8fe6d0ab8112439&regions=us&oddsFormat=american&markets=spreads,h2h,totals&dateFormat=iso',
+          'https://api.the-odds-api.com/v4/sports/' + sport + '/scores/?apiKey=7efe8c56271d1dbec8fe6d0ab8112439'];
     try {
       const cachedData = await redisConfig.get(sport);
       if (cachedData) {
