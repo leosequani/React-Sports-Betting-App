@@ -19,7 +19,7 @@ const handler = withIntegrations(
     const sport = event.queryStringParameters?.sport;
     const game_id = event.queryStringParameters?.game_id;
     const specMarkets = event.queryStringParameters?.specMarkets;
-    const url = 'https://api.the-odds-api.com/v4/sports/' + sport + '/events/' + game_id + '/odds?regions=us&oddsFormat=american&markets=' + specMarkets + '&dateFormat=iso&apiKey=6bffdd222bb81023539d36877832e767';
+    const url = 'https://api.the-odds-api.com/v4/sports/' + sport + '/events/' + game_id + '/odds?regions=us&oddsFormat=american&markets=' + specMarkets + '&dateFormat=iso&apiKey=7efe8c56271d1dbec8fe6d0ab8112439';
     
       try {
         const cachedData = await redisConfig.get(sport + ' - ' + game_id);
